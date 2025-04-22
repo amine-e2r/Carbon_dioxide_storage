@@ -53,10 +53,11 @@ def F(n, C):
 
 
 #methodes numeriques**********************
-
+"""
 def point_fixe(n, C, _F, _eps=eps, _max_iter = max_iter):
     C = np.array(C)
     Ck = C[0]
     for i in range(_max_iter):
         if(C[])
+"""
 #methodes numeriques**********************
