@@ -61,5 +61,5 @@ def point_fixe(C0, F, eps=eps, max_iter = max_iter):
         if(k >= max_iter or np.linalg.norm(C[k] - C[k-1],2) < eps):
             break
         k+=1
-    return C
+    return C[k]
 #methodes numeriques**********************
