@@ -31,7 +31,7 @@ h = 0.1 # il y a 0.1 secondes entre tn et tn+1 (on pourra le réduire ou l'augme
 #Autres variables ************************
 
 
-
+"""
 #fonctions********************************
 
 def f(n, C): 
@@ -63,7 +63,7 @@ def point_fixe(C0, F, eps=eps, max_iter = max_iter):
         k+=1
     return C[k]
 #methodes numeriques**********************
-
+"""
 #fonctions********************************
 
 def f(Cn): 
@@ -98,5 +98,13 @@ def point_fixe(X0, _F, _eps=eps, _max_iter = max_iter):
             break
         Xk = Xk_1
     return Xk_1
+
+def eulerImplicite(C0,_F):
+    N = Tf//h
+    C = np.zeros((3,N))
+    C[:,0] = C0
+    for k in range(1,N):
+        C[:,k] = point_fixe(C[:,k-1],_F)
+    return C
         
 #methodes numeriques**********************
