@@ -100,11 +100,23 @@ def point_fixe(X0, _F, _eps=eps, _max_iter = max_iter):
     return Xk_1
 
 def eulerImplicite(C0,_F):
+    #On calcul tout les Cn grâce à la méthode du point fixe
+    #C0 appartient à R3
     N = Tf//h
     C = np.zeros((3,N))
     C[:,0] = C0
     for k in range(1,N):
         C[:,k] = point_fixe(C[:,k-1],_F)
+    return C
+
+def eulerExplicite(C0):
+    #On calcul directement les Cn
+    #C0 appartient à R3
+    N = Tf//h
+    C = np.zeros((3,N))
+    C[:,0] = C0
+    for k in range(1,N):
+        C[:,k] = C[:,k-1] + h*f(C[:,k-1])
     return C
         
 #methodes numeriques**********************
