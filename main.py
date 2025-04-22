@@ -57,7 +57,7 @@ def point_fixe(C0, F, eps=eps, max_iter = max_iter):
     C = np.array(C0)
     k = 1
     while True:
-        np.append(C,C[k-1] + h*F(k,C))
+        C = np.append(C,F(k,C))
         if(k >= max_iter or np.linalg.norm(C[k] - C[k-1],2) < eps):
             break
         k+=1
