@@ -63,3 +63,40 @@ def point_fixe(C0, F, eps=eps, max_iter = max_iter):
         k+=1
     return C[k]
 #methodes numeriques**********************
+
+#fonctions********************************
+
+def f(Cn): 
+    #Ici Cn est un tableau de taille 3(numpy array ou bien juste un array)
+    #n correspond à l'indice de tn
+    #renvoie un np array
+    y1 = Cn[1] * (-alpha * (1 - (Cn[1])/K) + beta) + delta * Cn[2]
+    y2 = Cn[1] * (alpha * (1 - (Cn[1])/K) - beta - delta - gamma)
+    y3 = Cn[1] * (gamma + delta) - delta * Cn[2]
+    return np.array([y1,y2,y3])
+
+def F(Cnk_suiv, Cnk_prec):
+    #l'argument C peut etre un np array ou un array (les deux marchent)
+    Cnk_prec = np.array(Cnk_prec)
+    Cnk_suiv = np.array(Cnk_suiv)
+    return Cnk_prec + h*f(Cnk_suiv)
+
+#fonctions********************************
+
+
+
+#methodes numeriques**********************
+
+def point_fixe(X0, _F, _eps=eps, _max_iter = max_iter):
+    #résout X  = _F(X) par methode du point fixe
+    C = np.array(C)
+    Xk = X0 #
+    Xk_1 = X0 #Cn,k+1
+    for i in range(_max_iter):
+        Xk_1 = _F(Xk, X0)
+        if(np.norm(Xk, Xk_1) < eps):
+            break
+        Xk = Xk_1
+    return Xk_1
+        
+#methodes numeriques**********************
