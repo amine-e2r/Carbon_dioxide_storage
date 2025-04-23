@@ -32,40 +32,6 @@ h = 0.1 # il y a 0.1 secondes entre tn et tn+1 (on pourra le réduire ou l'augme
 
 #Autres variables ************************
 
-
-"""
-#fonctions********************************
-
-def f(n, C): 
-    #Ici C est un tableau de tableaux de taille 3 chacun(numpy array ou bien juste un array)
-    #n correspond à l'indice de tn
-    #renvoie un np array
-    y1 = C[n][1] * (-alpha * (1 - (C[n][1])/K) + beta) + delta * C[n][2]
-    y2 = C[n][1] * (alpha * (1 - (C[n][1])/K) -beta - delta - gamma)
-    y3 = C[n][1] * (gamma + delta) - delta * C[n][2]
-    return np.array([y1,y2,y3])
-
-def F(n, C):
-    #l'argument C peut etre un np array ou un array (les deux marchent)
-    C = np.array(C)
-    return C[n-1] + f(n,C)
-
-#fonctions********************************
-
-
-
-#methodes numeriques**********************
-def point_fixe(C0, F, eps=eps, max_iter = max_iter):
-    C = np.array(C0)
-    k = 1
-    while True:
-        C = np.append(C,F(k,C))
-        if(k >= max_iter or np.linalg.norm(C[k] - C[k-1],2) < eps):
-            break
-        k+=1
-    return C[k]
-#methodes numeriques**********************
-"""
 #fonctions********************************
 
 def f(Cn): 
