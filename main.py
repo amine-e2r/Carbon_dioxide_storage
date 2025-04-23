@@ -43,7 +43,7 @@ def f(Cn):
     y3 = Cn[1] * (gamma + delta) - delta * Cn[2]
     return np.array([y1,y2,y3])
 
-def F(Cnk_suiv, Cnk_prec):
+def F1(Cnk_suiv, Cnk_prec):
     #l'argument C peut etre un np array ou un array (les deux marchent)
     Cnk_prec = np.array(Cnk_prec)
     Cnk_suiv = np.array(Cnk_suiv)
