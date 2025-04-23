@@ -4,11 +4,12 @@ import numpy as np
 #Variables globales
 
 #Constantes ******************************
-alpha = 1
-beta = 1
-gamma = 1
-delta = 1
-K = 1
+alpha = 0.1
+beta = 0.02
+gamma = 0.03
+delta = 0.01
+K = 100
+#Valeurs trouvées grâce à chat gpt et internet
 #Constantes ******************************
 
 #Autres variables ************************
@@ -18,9 +19,10 @@ Tf = 1000 #temps final en secondes
 
 
     #Conditions initiales
-CA0 = 0.1
-CT0 = 0.1
-CS0 = 0.1
+CA0 = 80
+CT0 = 20
+CS0 = 10
+#Valeurs trouvées grâce à chat gpt et internet
 C0 = [CA0, CT0, CS0]
 #Plus tard, le tableau de tableau C contiendra à chaque ligne n le tableau Cn (n ième itération de la methode de newton)
 t0 = 0 #temps initial en secondes
@@ -89,34 +91,40 @@ def F(Cnk_suiv, Cnk_prec):
 
 def point_fixe(X0, _F, _eps=eps, _max_iter = max_iter):
     #résout X  = _F(X) par methode du point fixe
-    C = np.array(C)
+    X0 = np.array(X0)
     Xk = X0 #
     Xk_1 = X0 #Cn,k+1
     for i in range(_max_iter):
         Xk_1 = _F(Xk, X0)
-        if(np.norm(Xk, Xk_1) < eps):
+        if(np.linalg.norm(Xk - Xk_1) < eps):
             break
         Xk = Xk_1
     return Xk_1
 
-def eulerImplicite(C0,_F):
+def eulerImplicite(_C0,_F):
     #On calcul tout les Cn grâce à la méthode du point fixe
     #C0 appartient à R3
-    N = Tf//h
-    C = np.zeros((3,N))
-    C[:,0] = C0
-    for k in range(1,N):
-        C[:,k] = point_fixe(C[:,k-1],_F)
+    t = t0
+    C = np.zeros((3,1))
+    C[:,0] = _C0
+    k = 1
+    while(t < Tf):
+        C = np.append(C, np.transpose( [point_fixe(C[:,k-1],_F)] ), axis=1) #ajoute comme on veut le nouveau Cn+1 au tableau C
+        t = t+h
+        k = k+1
     return C
 
-def eulerExplicite(C0):
+def eulerExplicite(_C0):
     #On calcul directement les Cn
     #C0 appartient à R3
-    N = Tf//h
-    C = np.zeros((3,N))
-    C[:,0] = C0
-    for k in range(1,N):
-        C[:,k] = C[:,k-1] + h*f(C[:,k-1])
+    t = t0
+    C = np.zeros((3,1))
+    C[:,0] = _C0
+    k = 1
+    while(t < Tf):
+        C = np.append(C, np.transpose( [C[:,k-1] + h*f(C[:,k-1])] ), axis = 1) #ajoute comme on veut le nouveau Cn+1 au tableau C
+        t = t+h
+        k = k+1
     return C
         
 #methodes numeriques**********************
