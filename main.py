@@ -1,5 +1,5 @@
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 #Variables globales
 
@@ -72,25 +72,50 @@ def eulerImplicite(_C0,_F):
     #C0 appartient à R3
     t = t0
     C = np.zeros((3,1))
+    T = [t0]
     C[:,0] = _C0
     k = 1
     while(t < Tf):
-        C = np.append(C, np.transpose( [point_fixe(C[:,k-1],_F)] ), axis=1) #ajoute comme on veut le nouveau Cn+1 au tableau C
         t = t+h
+        C = np.append(C, np.transpose([point_fixe(C[:,k-1],_F)]), axis=1) #ajoute comme on veut le nouveau Cn+1 au tableau C
+        T.append(t)
         k = k+1
-    return C
+    return C, T
+
 
 def eulerExplicite(_C0):
     #On calcul directement les Cn
     #C0 appartient à R3
     t = t0
     C = np.zeros((3,1))
+    T = [t0]
     C[:,0] = _C0
     k = 1
     while(t < Tf):
-        C = np.append(C, np.transpose( [C[:,k-1] + h*f(C[:,k-1])] ), axis = 1) #ajoute comme on veut le nouveau Cn+1 au tableau C
         t = t+h
+        C = np.append(C, np.transpose( [C[:,k-1] + h*f(C[:,k-1])] ), axis = 1) #ajoute comme on veut le nouveau Cn+1 au tableau C
+        T.append(t)
         k = k+1
-    return C
-        
+    return C, T
 #methodes numeriques**********************
+
+
+C1, T1 = eulerImplicite(C0, F1)
+C2, T2 = eulerExplicite(C0)
+
+plt.subplot(2,1,1)
+plt.plot(T1, C1[0], label='CA(t)')
+plt.plot(T1, C1[1], label='CT(t)')
+plt.plot(T1, C1[2], label='Cs(t)')
+plt.legend()
+plt.title("Point fixe à partir d'Euler Implicite")
+
+plt.subplot(2,1,2)
+plt.plot(T2, C2[0], label='CA(t)')
+plt.plot(T2, C2[1], label='CT(t)')
+plt.plot(T2, C2[2], label='CS(t)')
+plt.legend()
+plt.xlabel("t")
+plt.title("Euler explicite")
+
+plt.show()
