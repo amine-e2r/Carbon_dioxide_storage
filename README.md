@@ -17,7 +17,7 @@ Ces équations sont essentielles pour représenter la variabilité des sols, du 
 ***
 Dans ce projet Nous étudions l'évolution de trois variables en fonction du temps :
 
-- **C_A(t)** : Quantité de carbone dans l'atmosphère  
+- **$C_A(t)$** : Quantité de carbone dans l'atmosphère  
 - **CT(t)** : Quantité de carbone dans les arbres  
 - **CS(t)** : Quantité de carbone dans les sols  
 
