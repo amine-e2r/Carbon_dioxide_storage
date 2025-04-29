@@ -44,7 +44,7 @@ avec:
 ***
 On pose:
 $$
-\begin{pmatrix}
+\begin{bmatrix}
     C_A(t) \\ C_T(t) \\ C_S(t)
-\end{pmatrix}
+\end{bmatrix}
 $$
