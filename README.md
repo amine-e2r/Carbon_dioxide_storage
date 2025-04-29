@@ -25,9 +25,9 @@ Le système d’équations gouvernant les échanges de carbone dans ce projet pe
 
 $$
 \begin{align}
-\frac{dC_A}{dt} &= -S(C_T) + \beta C_T + \delta C_S \tag{1} \\
-\frac{dC_T}{dt} &= S(C_T) - \beta C_T - \delta C_T - \gamma C_T \tag{2} \\
-\frac{dC_S}{dt} &= \gamma C_T + \delta C_T - \delta C_S \tag{3}
+\frac{dC_A}{dt} &= -S(C_T) + \beta C_T + \delta C_S\\
+\frac{dC_T}{dt} &= S(C_T) - \beta C_T - \delta C_T - \gamma C_T\\
+\frac{dC_S}{dt} &= \gamma C_T + \delta C_T - \delta C_S
 \end{align}
 $$
 
