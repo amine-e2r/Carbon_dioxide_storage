@@ -1,5 +1,11 @@
-# Modeling of carbon dioxide storage
+# Modélisation du Stockage du Dioxyde de Carbone
 <br><br/>
+Le cycle du carbone est un processus naturel qui régule la répartition du carbone entre l’atmosphère, la biosphère (forêts, sols), les océans et la lithosphère. Les forêts jouent un rôle essentiel dans ce cycle en absorbant le dioxyde de carbone (CO₂) atmosphérique par photosynthèse, le transformant en matière organique (glucides, cellulose) et en le stockant dans les arbres et les sols. La réaction chimique principale, la photosynthèse, est :
+
+$$
+6 CO_2 + 6 H_2O \rightarrow C_6H_{12}O_6 + 6O_2
+$$
+
 <br><br/>
 <br><br/>
 ***
