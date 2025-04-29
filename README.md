@@ -43,8 +43,76 @@ avec:
 ### **Méthodes et Implémentation**
 ***
 On pose:
+
 $$
-\begin{bmatrix}
-    C_A(t) \\ C_T(t) \\ C_S(t)
-\end{bmatrix}
+C(t) = \begin{pmatrix}
+    C_A(t) \\
+    C_T(t) \\
+    C_S(t)
+\end{pmatrix}
 $$
+
+et
+
+$$
+f(t,C(t)) = \begin{pmatrix}
+    -\alpha C_T(t) \left(1 - \frac{C_T(t)}{K}\right) + \beta C_T(t) + \delta C_S(t) \\
+    \alpha C_T(t) \left(1 - \frac{C_T(t)}{K}\right) - \beta C_T(t) - \delta C_T(t) - \gamma C_T(t) \\
+    \gamma C_T(t) - \delta C_S(t) + \delta C_T(t)
+\end{pmatrix}
+$$
+
+Ainsi le système revient à:
+
+$$
+\frac{dC(t)}{dt} = f(t,C(t))
+$$
+
+Si on discrétise uniformément l'intervalle de temps en N intervalles $[t_n, t_{n+1}]$, avec $n = \{1, 2, ..., N-1\}$, tel que $t_{n+1} = t_n + h$ et $h = \frac{1}{N}$.<br><br/>
+On peut appliquer une methode d'Euler:
+
+$$
+\begin{align}
+  C_n &= C(t_n)\\
+  C_{A,n} &= C_A(t_n)\\
+  C_{T,n} &= C_T(t_n)\\
+  C_{S,n} &= C_S(t_n)
+\end{align}
+$$
+
+$$
+\begin{equation*}
+    \int_{t_n}^{t_{n+1}} \frac{dC(t)}{dt} \ dt
+    \ = \int_{t_n}^{t_{n+1}} f(t,C(t)) \ dt
+\end{equation*}
+$$
+
+#### _Euler Implicite_
+
+$$
+\begin{equation*}
+    C_{n+1} - C_n \approx (t_{n+1} - t_n)f(t_{n+1},C_{n+1})
+\end{equation*}
+$$
+
+$$
+\begin{equation*}
+    C_{n+1} = C_n + h.f(t_{n+1},C_{n+1})
+\end{equation*}
+$$
+
+<br><br/>
+#### _Euler Explicite_
+
+$$
+\begin{equation*}
+    C_{n+1} - C_n \approx (t_{n+1} - t_n)f(t_{n},C_{n})
+\end{equation*}
+$$
+
+$$
+\begin{equation*}
+    C_{n+1} = C_n + h.f(t_{n},C_{n})
+\end{equation*}
+$$
+
