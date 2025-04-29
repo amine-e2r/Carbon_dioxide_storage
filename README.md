@@ -2,7 +2,6 @@
 <br><br/>
 <br><br/>
 <br><br/>
-<br><br/>
 ***
 ### **Introduction**
 ***
@@ -24,10 +23,11 @@ Dans ce projet Nous étudions l'évolution de trois variables en fonction du tem
 
 Le système d’équations gouvernant les échanges de carbone dans ce projet peut être modélisé par:
 
-```math
+&`
 dCA/dt = -S(CT) + β·CT + δ·CS        (1)
 dCT/dt = S(CT) - β·CT - δ·CT - γ·CT  (2)
 dCS/dt = γ·CT + δ·CT - δ·CS          (3)
+`&
 
 
 
