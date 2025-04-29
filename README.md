@@ -17,21 +17,30 @@ Ces équations sont essentielles pour représenter la variabilité des sols, du 
 ***
 Dans ce projet Nous étudions l'évolution de trois variables en fonction du temps :
 
-- **$C_A(t)$** : Quantité de carbone dans l'atmosphère  
-- **CT(t)** : Quantité de carbone dans les arbres  
-- **CS(t)** : Quantité de carbone dans les sols  
+- $C_A(t)$ : Quantité de carbone dans l'atmosphère  
+- $C_T(t)$ : Quantité de carbone dans les arbres  
+- $C_S(t)$ : Quantité de carbone dans les sols  
 
 Le système d’équations gouvernant les échanges de carbone dans ce projet peut être modélisé par:
 
 $$
 \begin{align}
-\frac{dC_A}{dt} &= -S(C_T) + \beta C_T + \delta C_S\\
-\frac{dC_T}{dt} &= S(C_T) - \beta C_T - \delta C_T - \gamma C_T\\
-\frac{dC_S}{dt} &= \gamma C_T + \delta C_T - \delta C_S
+(1) \quad \frac{dC_A}{dt} &= -S(C_T) + \beta C_T + \delta C_S \\
+(2) \quad \frac{dC_T}{dt} &= S(C_T) - \beta C_T - \delta C_T - \gamma C_T\\
+(3) \quad \frac{dC_S}{dt} &= \gamma C_T + \delta C_T - \delta C_S
 \end{align}
 $$
 
-
+avec:
+$$
+\begin{itemize}
+  \item $S(C_T) = \alpha C_T \left(1 - \dfrac{C_T}{K} \right)$~: taux de séquestration du carbone dans les arbres (modèle logistique),
+  \item $\beta C_T$~: respiration des arbres vers l'atmosphère,
+  \item $\delta C_T$~: transfert de carbone des arbres vers les sols,
+  \item $\delta C_S$~: respiration des sols vers l'atmosphère,
+  \item $\gamma C_T$~: litière végétale (feuilles mortes, débris organiques) transférée des arbres vers les sols.
+\end{itemize}
+$$
 
 
 
