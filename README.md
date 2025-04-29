@@ -15,7 +15,7 @@ Ces équations sont essentielles pour représenter la variabilité des sols, du 
 ***
 ### **Formulation Mathématique**
 ***
-Dans ce projet Nous étudions l'évolution de trois variables en fonction du temps :
+Dans ce projet, nous étudions l'évolution de trois variables en fonction du temps :
 
 - $C_A(t)$ : Quantité de carbone dans l'atmosphère  
 - $C_T(t)$ : Quantité de carbone dans les arbres  
@@ -39,3 +39,12 @@ avec:
   - $\gamma C_T$: litière végétale (feuilles mortes, débris organiques) transférée des arbres vers les sols.
 <br><br/>
 <br><br/>
+***
+### **Méthodes et Implémentation**
+***
+On pose:
+$$
+C(t) = \begin{pmatrix}
+    C_A(t) \\ C_T(t) \\ C_S(t)
+      \end{pmatrix}
+$$
