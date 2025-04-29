@@ -32,16 +32,10 @@ $$
 $$
 
 avec:
-  - $S(C_T) = \alpha C_T \left(1 - \dfrac{C_T}{K} \right)$: taux de séquestration du carbone dans les arbres (modèle logistique),
+  - $S(C_T) = \alpha C_T \left(1 - \dfrac{C_T}{K} \right)$: taux de séquestration du carbone dans les arbres,
   - $\beta C_T$: respiration des arbres vers l'atmosphère,
   - $\delta C_T$: transfert de carbone des arbres vers les sols,
   - $\delta C_S$: respiration des sols vers l'atmosphère,
   - $\gamma C_T$: litière végétale (feuilles mortes, débris organiques) transférée des arbres vers les sols.
-
-
-
-
-A rajouter :
-Méthode point fixe mais avec trapèze au lieux de rectangle, essayer avec simpson aussi + autres idées,
-Affiner le modèle pour coller plus aux vrais observations (lucah c le pro il es trop fort en CO2)
-Voir l'impact des différentes constantes, et voir différentes conditions initiales
+<br><br/>
+<br><br/>
