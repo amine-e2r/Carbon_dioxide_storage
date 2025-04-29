@@ -122,3 +122,68 @@ $$
 \end{equation*}
 $$
 
+<br><br/>
+<br><br/>
+***
+### **Impact des Paramètres sur la Séquestration du Carbone**
+***
+
+#### _Le paramètre 𝛼_
+Le paramètre 𝛼 influence le taux de séquestration du carbone par les arbres. Il apparaît dans la fonction non linéaire :
+
+$$
+S(C_T) = \alpha C_T \left(1 - \frac{C_T}{K} \right)
+$$
+
+Cette fonction décrit la capture du CO₂ par les arbres. Lorsque 𝛼 augmente (pour un $C_T$ et un $K$ fixés), la valeur de $S(C_T)$ augmente également. Cela signifie que 𝛼 influence directement la rapidité d’absorption du carbone, ce qui conduit à un stockage plus rapide dans la biomasse végétale.
+
+<br><br/>
+
+#### _Le paramètre 𝐾_
+Le paramètre $K$ représente la quantité maximale de carbone que les arbres peuvent stocker. En reprenant l'équation :
+
+$$
+S(C_T) = \alpha C_T \left(1 - \frac{C_T}{K} \right)
+$$
+
+on observe que faire varier $K$ modifie le taux de séquestration. Une valeur élevée de $K$ permet aux arbres d’absorber du carbone pendant une période plus longue avant d’atteindre leur capacité maximale.
+
+<br><br/>
+
+#### _Le paramètre β_
+Le paramètre $\beta$, qui intervient dans le terme $\beta C_T$, représente la fraction de carbone que les arbres restituent à l’atmosphère par respiration. Plus $\beta$ est élevé, plus le retour de CO₂ dans l’air est important, ce qui réduit l’efficacité globale de la séquestration du carbone.
+
+<br><br/>
+
+#### _Le paramètre γ_
+Le paramètre $\gamma$ contrôle le flux de matière organique morte (litière) des arbres vers les sols, modélisé par le terme $\gamma C_T$. Il ne prend pas en compte la respiration des arbres vers le sol, qui est décrite par le terme $\delta C_T$. Une valeur élevée de $\gamma$ favorise l’enrichissement des sols en matière organique, ce qui améliore leur fertilité et leur capacité à stocker du carbone sur le long terme.
+
+<br><br/>
+
+#### _Le paramètre δ_
+Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arbres vers les sols ($\delta C_T$), et dans la respiration des sols vers l’atmosphère ($\delta C_S$). Il régule donc les pertes de carbone par respiration. Une valeur élevée de $\delta$ accélère le cycle du carbone, augmentant la quantité de CO₂ retournant à l’atmosphère. À l’inverse, un $\delta$ faible réduit ces pertes, ce qui favorise le stockage du carbone, notamment dans les sols. Cependant, une respiration trop faible peut ralentir le recyclage des nutriments essentiels à la croissance des plantes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
