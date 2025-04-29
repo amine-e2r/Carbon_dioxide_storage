@@ -44,9 +44,7 @@ avec:
 ***
 On pose:
 $$
-$\Vec{C}(t)$ = \begin{pmatrix}
+\begin{pmatrix}
     C_A(t) \\ C_T(t) \\ C_S(t)
 \end{pmatrix}
-\\
-$
 $$
