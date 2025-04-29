@@ -1,6 +1,6 @@
 # Modélisation du Stockage du Dioxyde de Carbone
 <br><br/>
-Le cycle du carbone est un processus naturel qui régule la répartition du carbone entre l’atmosphère, la biosphère (forêts, sols), les océans et la lithosphère. Les forêts jouent un rôle essentiel dans ce cycle en absorbant le dioxyde de carbone (CO₂) atmosphérique par photosynthèse, le transformant en matière organique (glucides, cellulose) et en le stockant dans les arbres et les sols. La réaction chimique principale, la photosynthèse, est :
+_Le cycle du carbone est un processus naturel qui régule la répartition du carbone entre l’atmosphère, la biosphère (forêts, sols), les océans et la lithosphère. Les forêts jouent un rôle essentiel dans ce cycle en absorbant le dioxyde de carbone (CO₂) atmosphérique par photosynthèse, le transformant en matière organique (glucides, cellulose) et en le stockant dans les arbres et les sols. La réaction chimique principale, la photosynthèse, est :_
 
 $$
 6 CO_2 + 6 H_2O \rightarrow C_6H_{12}O_6 + 6O_2
@@ -11,11 +11,11 @@ $$
 ***
 ### **Introduction**
 ***
-_Ce projet a pour objectif de modéliser les échanges de carbone entre les différents compartiments de l’écosystème à l’aide d’un système d’équations différentielles ordinaires (EDO). Bien sûr, nous ne prendrons pas en compte l’ensemble des compartiments écologiques, car cela mènerait à un système plus complexe.
+Ce projet a pour objectif de modéliser les échanges de carbone entre les différents compartiments de l’écosystème à l’aide d’un système d’équations différentielles ordinaires (EDO). Bien sûr, nous ne prendrons pas en compte l’ensemble des compartiments écologiques, car cela mènerait à un système plus complexe.
 <br><br/>
 Pour aller plus loin dans la modélisation du cycle du carbone et obtenir une description plus réaliste des échanges, il est nécessaire d’utiliser des équations aux dérivées partielles (EDP). Contrairement au modèle présenté ici, basé sur des EDO qui ne tiennent pas compte de la dimension spatiale, les EDP permettent de modéliser la répartition du carbone dans l’espace — par exemple, sa diffusion dans le sol ou son transport dans l’atmosphère.
 <br><br/>
-Ces équations sont essentielles pour représenter la variabilité des sols, du climat ou de la végétation à grande échelle, ainsi que pour étudier des phénomènes tels que la décomposition de la matière organique en profondeur. Ces modèles, plus complexes, sont utilisés dans les simulateurs climatiques et les modèles globaux de végétation, et nécessitent des méthodes numériques avancées pour être résolus._
+Ces équations sont essentielles pour représenter la variabilité des sols, du climat ou de la végétation à grande échelle, ainsi que pour étudier des phénomènes tels que la décomposition de la matière organique en profondeur. Ces modèles, plus complexes, sont utilisés dans les simulateurs climatiques et les modèles globaux de végétation, et nécessitent des méthodes numériques avancées pour être résolus.
 <br><br/>
 <br><br/>
 ***
@@ -125,6 +125,12 @@ $$
 <br><br/>
 <br><br/>
 ***
+### **Resultas**
+***
+<br><br/>
+<br><br/>
+
+***
 ### **Impact des Paramètres sur la Séquestration du Carbone**
 ***
 
@@ -162,10 +168,21 @@ Le paramètre $\gamma$ contrôle le flux de matière organique morte (litière) 
 
 #### _Le paramètre δ_
 Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arbres vers les sols ($\delta C_T$), et dans la respiration des sols vers l’atmosphère ($\delta C_S$). Il régule donc les pertes de carbone par respiration. Une valeur élevée de $\delta$ accélère le cycle du carbone, augmentant la quantité de CO₂ retournant à l’atmosphère. À l’inverse, un $\delta$ faible réduit ces pertes, ce qui favorise le stockage du carbone, notamment dans les sols. Cependant, une respiration trop faible peut ralentir le recyclage des nutriments essentiels à la croissance des plantes.
-
-
-
-
+<br><br/>
+<br><br/>
+***
+### **Amélioration du Modèle**
+***
+<br><br/>
+<br><br/>
+***
+### **Conclusion**
+***
+<br><br/>
+<br><br/>
+***
+### **Annexe**
+***
 
 
 
