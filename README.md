@@ -32,15 +32,11 @@ $$
 $$
 
 avec:
-$$
-\begin{itemize}
-  \item $S(C_T) = \alpha C_T \left(1 - \dfrac{C_T}{K} \right)$~: taux de séquestration du carbone dans les arbres (modèle logistique),
-  \item $\beta C_T$~: respiration des arbres vers l'atmosphère,
-  \item $\delta C_T$~: transfert de carbone des arbres vers les sols,
-  \item $\delta C_S$~: respiration des sols vers l'atmosphère,
-  \item $\gamma C_T$~: litière végétale (feuilles mortes, débris organiques) transférée des arbres vers les sols.
-\end{itemize}
-$$
+  - $S(C_T) = \alpha C_T \left(1 - \dfrac{C_T}{K} \right)$: taux de séquestration du carbone dans les arbres (modèle logistique),
+  - $\beta C_T$: respiration des arbres vers l'atmosphère,
+  - $\delta C_T$: transfert de carbone des arbres vers les sols,
+  - $\delta C_S$: respiration des sols vers l'atmosphère,
+  - $\gamma C_T$: litière végétale (feuilles mortes, débris organiques) transférée des arbres vers les sols.
 
 
 
