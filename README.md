@@ -107,6 +107,61 @@ $$
 \end{equation*}
 $$
 
+Cette équation étants non-linéaire, il est mieux de se ramener à un problème de point fixe :
+$$
+F(C_{n+1}) = C_n + h \cdot f(t_n, C_{n+1})
+$$
+
+On considère alors $\forall n \ge 1$ la suite $(C_{n,k})_{k \in \mathbb{N}}$ telle que:
+
+$$
+\begin{equation}
+\begin{cases}
+  C_{n,k+1} &= \quad F(C_{n,k}) \\
+  C_{n,0} &= \quad C_{n-1}
+\end{cases}
+\end{equation}
+$$
+
+Algorithme:
+
+```
+Fonction eulerImplicite(C0, F)
+    Initialiser t ← t0
+    Créer un tableau C de taille 3×1 rempli de zéros
+    Créer une liste T contenant t0
+    Mettre la première colonne de C égale à C0
+    Initialiser k ← 1
+
+    Tant que t < Tf faire
+        t ← t + h
+        Cn_plus_1 ← point_fixe(C[:, k-1], F)
+        Ajouter Cn_plus_1 comme nouvelle colonne à C
+        Ajouter t à la liste T
+        k ← k + 1
+    Fin Tant que
+
+    Retourner C et T
+Fin Fonction
+```
+```
+Fonction point_fixe(X0, F, eps, max_iter)
+    Convertir X0 en vecteur (si nécessaire)
+    Initialiser Xk ← X0
+    Initialiser Xk_1 ← X0
+
+    Pour i allant de 0 à max_iter - 1 faire
+        Xk_1 ← F(Xk, X0)
+        Si la norme de (Xk - Xk_1) est inférieure à eps alors
+            Sortir de la boucle
+        Fin Si
+        Xk ← Xk_1
+    Fin Pour
+
+    Retourner Xk_1
+Fin Fonction
+```
+
 <br><br/>
 #### _Euler Explicite_
 
@@ -121,6 +176,28 @@ $$
     C_{n+1} = C_n + h.f(t_{n},C_{n})
 \end{equation*}
 $$
+
+Algorithme:
+
+```
+Fonction eulerExplicite(C0)
+    Initialiser t ← t0
+    Créer un tableau C de taille 3×1 rempli de zéros
+    Créer une liste T contenant t0
+    Mettre la première colonne de C égale à C0
+    Initialiser k ← 1
+
+    Tant que t < Tf faire
+        t ← t + h
+        Cn_plus_1 ← C[:, k-1] + h × f(C[:, k-1])
+        Ajouter Cn_plus_1 comme nouvelle colonne à C
+        Ajouter t à la liste T
+        k ← k + 1
+    Fin Tant que
+
+    Retourner C et T
+Fin Fonction
+```
 
 <br><br/>
 <br><br/>
