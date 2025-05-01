@@ -108,6 +108,7 @@ $$
 $$
 
 Cette équation étants non-linéaire, il est mieux de se ramener à un problème de point fixe :
+
 $$
 F(C_{n+1}) = C_n + h \cdot f(t_n, C_{n+1})
 $$
