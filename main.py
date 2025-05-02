@@ -43,11 +43,27 @@ def f(Cn):
     y3 = Cn[1] * (gamma + delta) - delta * Cn[2]
     return np.array([y1,y2,y3])
 
+#fonction d'approximation de Cn+1 avec rectangle droit
 def F1(Cnk_suiv, Cnk_prec):
-    #l'argument C peut etre un np array ou un array (les deux marchent)
     Cnk_prec = np.array(Cnk_prec)
     Cnk_suiv = np.array(Cnk_suiv)
     return Cnk_prec + h*f(Cnk_suiv)
+
+#fonction d'approximation de Cn+1 avec trapèze
+def F2(Cnk_suiv, Cnk_prec):
+    Cnk_prec = np.array(Cnk_prec)
+    Cnk_suiv = np.array(Cnk_suiv)
+    return Cnk_prec + (h/2)*(f(Cnk_suiv) + f(Cnk_prec))
+
+#fonction de newton que l'on cherchera à annuler
+def f_newton(Cnk_suiv, Cnk_prec):
+    return F2(Cnk_suiv, Cnk_prec) - Cnk_suiv
+
+def df_newton(Cnk):
+    A = np.zeros((3,3))
+    A[:,1] = [-alpha + (2*Cnk[1])/K + beta, alpha - (2*Cnk[1])/K - beta - delta - gamma, gamma + delta]
+    A[:,2] = [delta, 0, -delta]
+    return (h/2) * A - np.eye(3)
 
 #fonctions********************************
 
@@ -66,6 +82,16 @@ def point_fixe(X0, _F, _eps=eps, _max_iter = max_iter):
             break
         Xk = Xk_1
     return Xk_1
+
+def newton(X0, f, df, _eps=eps, _max_iter= max_iter):
+    #résout f(x) = 0 par la méthode de newton
+    X0 = np.array(X0)
+    Xk = X0
+    for i in range(_max_iter):
+        if(np.linalg.norm(f(Xk, X0)) < _eps):
+            break
+        Xk = Xk - np.linalg.inv(df(Xk)) @ f(Xk, X0)
+    return Xk
 
 def eulerImplicite(_C0,_F):
     #On calcul tout les Cn grâce à la méthode du point fixe
@@ -97,8 +123,24 @@ def eulerExplicite(_C0):
         T.append(t)
         k = k+1
     return C, T
+
+def trapeze_newton(_C0):
+    #résolution grâce à la méthode des trapèzes qui replce euler, puis newton pour trouver Cn+1
+    t = t0
+    C = np.zeros((3,1))
+    T = [t0]
+    C[:,0] = _C0
+    k = 1
+    while(t < Tf):
+        t = t+h
+        C = np.append(C, np.transpose( [newton(C[:,k-1],f_newton, df_newton)] ), axis = 1) #ajoute comme on veut le nouveau Cn+1 au tableau C
+        T.append(t)
+        k = k+1
+    return C, T
+
 #methodes numeriques**********************
 
+#changer ici pour visualiser ce qu'on veut (ex remplacer C1, T1 = eulerImplicite(C0, F1) par C1, T1 = trapeze_newton(C0))
 
 C1, T1 = eulerImplicite(C0, F1)
 C2, T2 = eulerExplicite(C0)
