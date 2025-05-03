@@ -202,7 +202,11 @@ Fin Fonction
 
 #### _Méthode de Trapèze_
 
-
+$$
+\begin{equation*}
+        C_{n+1} = C_n + \frac{h}{2}[f(t_{n+1},C_{n+1})+f(t_n, C_n)]
+    \end{equation*}
+$$
 
 Algorithme:
 
