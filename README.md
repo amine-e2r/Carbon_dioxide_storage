@@ -200,6 +200,49 @@ Fonction eulerExplicite(C0)
 Fin Fonction
 ```
 
+#### _Méthode de Trapèze_
+
+
+
+Algorithme:
+
+```
+Fonction trapeze_newton(C0)
+    Initialiser t ← t0
+    Créer un tableau C de taille 3×1 rempli de zéros
+    Créer une liste T contenant t0
+    Mettre la première colonne de C égale à C0
+    Initialiser k ← 1
+
+    Tant que t < Tf faire
+        t ← t + h
+        Cn_plus_1 ← newton(C[:, k-1], f_newton, df_newton)
+        Ajouter Cn_plus_1 comme nouvelle colonne à C
+        Ajouter t à la liste T
+        k ← k + 1
+    Fin Tant que
+
+    Retourner C et T
+Fin Fonction
+```
+
+```
+Fonction newton(X0, f, df, eps, max_iter)
+    Convertir X0 en vecteur (si nécessaire)
+    Initialiser Xk ← X0
+
+    Pour i allant de 0 à max_iter - 1 faire
+        Si la norme de f(Xk, X0) est inférieure à eps alors
+            Sortir de la boucle
+        Fin Si
+
+        Xk ← Xk - inverse(df(Xk)) × f(Xk, X0)
+    Fin Pour
+
+    Retourner Xk
+Fin Fonction
+```
+
 <br><br/>
 <br><br/>
 ***
