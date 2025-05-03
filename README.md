@@ -208,6 +208,31 @@ $$
     \end{equation*}
 $$
 
+Tout comme la méthode d'Euler Implicite, nous avons une équation non-linéaire, cette fois si nous allons utiliser une méthode de Newton qui va nous garantir une convergence quadratique et qui est donc plus performant que la méthode de point fixe, on pose alors:
+
+$$
+\begin{equation*}
+        F(C_{n+1}) = C_n + \frac{h}{2}[f(t_{n+1},C_{n+1})+f(t_n, C_n)]
+    \end{equation*}
+$$
+
+et
+
+$$
+f_{newton}(C_{n+1}) = F(C_{n+1}) - C_{n+1}
+$$
+
+Cela revient à résoudre $f_{newton}(C_{n+1}) = 0$
+
+$$
+\begin{align}
+    df_{newton}(C_{n+1}) &= \frac{d}{dC_{n+1}}f_{newton}(C_{n+1}) \\ 
+     &= \frac{d}{dC_{n+1}}F(C_{n+1}) - \frac{d}{dC_{n+1}}C_{n+1} \\
+     &= \frac{d}{dC_{n+1}}(C_n +\frac{h}{2}(f(t_{n+1},C_{n+1})+f(t_n, C_n)) - I_3 \\
+     &=\frac{h}{2}\frac{d}{dC_{n+1}}f(t_{n+1},C_{n+1}) - I_3 \\
+\end{align}
+$$
+
 Algorithme:
 
 ```
