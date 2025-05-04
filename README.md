@@ -415,12 +415,10 @@ C = np.append(C, np.transpose([Cn]))
 Les océans sont les plus grand puit de carbone de la planète, il est donc légitime de les prendre en compge dans notre modélisation. 
 En présence d'un océean, on peut rajouter une autre variable $C_O(t)$ la quantité de carbone dans l'eau. On a une interaction entre l'eau et l'atmosphère.
 
-$
-  \frac{dC_A(t)}{dt} = -S(C_T(t)) + \beta C_T(t) + \delta C_S(t) - \epsilon C_A(t) + \omega C_O(t) \\
-  \frac{dC_T(t)}{dt} = S(C_T(t)) - \beta C_T(t) - \delta C_T(t) - \gamma C_T(t) \\
-  \frac{dC_S(t)}{dt} = \gamma C_T(t) - \delta C_S(t) + \delta C_T(t) \\
-  \frac{dC_O(t)}{dt} = \epsilon C_A(t) - \omega C_O(t)
-$
+$\frac{dC_A(t)}{dt} = -S(C_T(t)) + \beta C_T(t) + \delta C_S(t) - \epsilon C_A(t) + \omega C_O(t)$
+$\frac{dC_T(t)}{dt} = S(C_T(t)) - \beta C_T(t) - \delta C_T(t) - \gamma C_T(t)$
+$\frac{dC_S(t)}{dt} = \gamma C_T(t) - \delta C_S(t) + \delta C_T(t)$
+$\frac{dC_O(t)}{dt} = \epsilon C_A(t) - \omega C_O(t)$
 
 avec $\epsilon C_A(t)$ qui représente le taux de séquestration du carbone dans l'océean et $\omega C_O(t)$ décrit l’effet de respiration de l'océan vers l'atmosphère.
 
