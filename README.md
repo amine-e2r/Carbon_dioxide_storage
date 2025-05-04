@@ -370,16 +370,27 @@ Le carbone absorbé par les arbres est transféré dans le sol, ce qui permet un
 ![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/uniquement%20gamma%20alpha.png)
 Cette représentation nous montre qu’ici le transfert de carbone entre les arbres et le sol est assez important pour avoir une séquestration très forte et très rapide.
 
-Si on pose $gamma = 0.001$,
+Si on pose $\gamma = 0.001$,
 ![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/uniquement%20gamma%20alpha%20%2B%20faible.png)
 On remarque que la séquestration est plus faible. Mais quelque soit la valeur des paramètres $\alpha$ et $\gamma$ si $\beta = \delta = 0$ on n'atteindra pas d'équilibre puisque aucun carbone n'est rejeté dans l'atmosphère.
 
+Lorsque le carbone est autorisé à être rejeté dans le sol par les arbres et dans l'atmosphère par le sol grâce à la respiration, avec des valeurs spécifiques pour $\delta = 0.01$, $\alpha = 0.1$, et $\gamma = 0.02$ et toujours $beta = 0$ un équilibre est atteint. Dans cet équilibre, la quantité de carbone absorbée par les arbres est égale à celle rejetée dans l'atmosphère et le sol.
+Pour la courbe ci-dessous on a $C_{A0} = 80, C_{T0} = 30, C_{S0} = 10$
+![alt txt](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/equilibre.png)
 
+On pose $\beta = 0.01$, on autorise la respiration directe entre les arbres et l'atmosphère.
+![alt txt](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/equilibre%202.png)
+
+On atteint l'équilibre à une quantité de séquestration plus faible car le système perd plus de carbone dans l'atmosphère en raison de l'augmentation de $\beta$, et la capacité d'absorption des arbres est limitée. On pourrait compenser cette perte en augmentant $alpha$ et on pourra retrouver le même graphique que précédemment.
+
+Si on augment encore $\beta$ avec $\beta = 0.08$ on observe un augmentation du carbone dans l'atmosphère. La quantité de carbone rejetée est plus élevée que celle absorbé.
+
+![alt txt](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/augmentation%20ca.png)
 
 ***
 ### **Amélioration du Modèle**
 ***
-
+Dans notre modèle, on autorise $C_A$ à devenir négatif, ce qui n'est pas réaliste d'un point de vue physique. Pour améliorer le modèle, on pourrait imposer une borne inférieure à $C_A$.
 <br><br/>
 <br><br/>
 ***
