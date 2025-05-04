@@ -349,6 +349,9 @@ Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arb
 ***
 ### **Analyse de l'impact des paramètres sur la modélisation**
 ***
+
+#### Impact de $K$
+
 La capacité de stockage maximale des arbres est représentée par le paramètre $K$. Si la quantité de carbone initiale dans les arbres $C_{T0}$ est supérieure à $K$, alors la fonction de séquestration du carbone, $S(C_T)$ est négative. Donc du carbone présent dans les arbres est rejeté dans le sol et dans l'atmosphère pour que $C_T$ passe sous $K$.
 
 ![Courbe avec \(C_T0 > K\) et \(h = 10\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/CT0%20sup%20K%20h%20%3D%2010.png)
@@ -358,16 +361,16 @@ La capacité de stockage maximale des arbres est représentée par le paramètre
 On remarque qu’en effet au début le carbone dans l’air augmente et celui dans le sol a aussi une augmentation plus forte.  
 Il y a une autre remarque : c'est le fait que la modélisation pour $h = 10$ et Euler Implicite ne marche pas. On peut imaginer que si $C_{T0} > K$ alors $C_T$ évolue rapidement pour passer sous $K$, tandis que $C_S$ et $C_A$ sont plus lents. Il faut donc un pas faible pour pouvoir capter correctement ces variations.
 
----
-### Absorption de carbone par les arbres uniquement
+
+#### Absorption de carbone par les arbres uniquement
 
 Dans ce cas, $\gamma = \beta = \delta = 0$ et $\alpha = 0.3$, les arbres absorbent du carbone sans jamais le relâcher, ni dans l’atmosphère, ni dans le sol. Dans ce scénario, le carbone absorbé par les arbres augmente jusqu'à atteindre la capacité maximale $K$, tandis que le carbone dans l'atmosphère diminue proportionnellement, jusqu'à ce que le niveau de $C_A$ atteigne $C_{A0} - (K - C_{T0})$.
 
 ![Courbe pour $\alpha = 0.3$, $\gamma = \beta = \delta = 0$](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/tout%20%3D%200%2C%20alpha%20!%3D.png)  
-*Paramètre : $K = 200$, $C_{A0} = 80$, $C_{T0} = 1$, $C_{S0} = 10$*
+*Paramètre :* $K = 200$, $C_{A0} = 80$, $C_{T0} = 1$, $C_{S0} = 10$
 
----
-### Transfert de carbone vers le sol
+
+#### Transfert de carbone vers le sol
 
 Si on permet le transfert de carbone vers le sol grâce à la litière (feuilles mortes) en posant $\gamma = 0.2$  
 Le carbone absorbé par les arbres est transféré dans le sol, ce qui permet une séquestration plus efficace.
@@ -380,16 +383,16 @@ Si on pose $\gamma = 0.001$,
 
 On remarque que la séquestration est plus faible. **Mais quelque soit la valeur des paramètres $\alpha$ et $\gamma$ si $\beta = \delta = 0$ on n'atteindra pas d'équilibre** puisque aucun carbone n'est rejeté dans l'atmosphère.
 
----
-### Transfert arbres, sol et atmosphère
+
+#### Transfert arbres, sol et atmosphère
 
 Lorsque le carbone est autorisé à être rejeté dans le sol par les arbres et dans l'atmosphère par le sol grâce à la respiration, avec des valeurs spécifiques pour $\delta = 0.01$, $\alpha = 0.1$, et $\gamma = 0.02$ et toujours $\beta = 0$, un équilibre est atteint. Dans cet équilibre, la quantité de carbone absorbée par les arbres est égale à celle rejetée dans l'atmosphère et le sol.
 
 ![Courbe avec $\delta = 0.01$, $\alpha = 0.1$, $\gamma = 0.02$](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/equilibre.png)  
-*Paramètres : $C_{A0} = 80$, $C_{T0} = 30$, $C_{S0} = 10$*
+*Paramètres :* $C_{A0} = 80$, $C_{T0} = 30$, $C_{S0} = 10$
 
----
-### Transfert entre arbres et atmosphère
+
+#### Transfert entre arbres et atmosphère
 
 On pose $\beta = 0.01$, on autorise la respiration directe entre les arbres et l'atmosphère.
 
