@@ -422,7 +422,7 @@ $$
   \frac{dC_S(t)}{dt} &= \gamma C_T(t) - \delta C_S(t) + \delta C_T(t) \\
   \frac{dC_O(t)}{dt} &= \epsilon C_A(t) - \omega C_O(t)
 \end{cases}
-\begin{equation}
+\end{equation}
 $$
 avec $\epsilon C_A(t)$ qui représente le taux de séquestration du carbone dans l'océean et $\omega C_O(t)$ décrit l’effet de respiration de l'océan vers l'atmosphère.
 
