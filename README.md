@@ -351,8 +351,19 @@ Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arb
 ***
 La capacité de stockage maximale des arbres est représentée par le paramètre \( K \). Si la quantité de carbone initiale dans les arbres $C_{T0}$ est supérieur à $K$, alors la fonction de séquestration du carbone, $S(C_T)$ est négative. Donc du carbone présent dans les arbres est rejeté dans le sol est dans l'atmosphère pour que $C_T$ passe sous $K$.
 
+![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/CT0%20sup%20K%20h%20%3D%2010.png)
+
 ![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/CT0%20sup%20K%20h%20%3D%200.1.png)
 
+On remarque qu’en effet au d´ebut le carbone dans l’air augmente et celui dans le sol a aussi une augmentation plus forte.
+Il y a autre une autre remarque, c'est le fait que modélisation pour $h = 10$ et Euler Implicite ne marche pas. On peut imaginer que si $C_{T0} > K$ alors $C_{T}$ évolue rapidement pour passer sous $K$, tandis que $C_{S}$ et $C_{A}$ sont plus lent. Il faut donc un pas faible pour pouvoir capter correctement ces variations.
+
+
+Dans le cas ou $\gamma = \beta = \delta = 0$ et $\aplha = 0.3$, les arbres absorbent du carbone sans jamais le relâcher, ni dans l’atmosphère, ni dans le sol. Dans ce scénario, le carbone absorbé par les arbres augmente jusqu'à atteindre la capacité maximale $K$, tandis que le carbone dans l'atmosphère diminue proportionnellement, jusqu'à ce que le niveau de $C_A$ atteigne $C_{A0} - (K - C_{T0})$.
+
+![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/tout%20%3D%200%2C%20alpha%20!%3D.png)
+
+$K = 200, C_{A0} = 80, C_{T0} = 1, C_{S0} = 10$
 
 ***
 ### **Amélioration du Modèle**
