@@ -430,6 +430,7 @@ avec $\epsilon C_A(t)$ qui représente le taux de séquestration du carbone dans
 ***
 ### **Annexe**
 ***
+[L’océan, puits de carbone](https://ocean-climate.org/sensibilisation/locean-puits-de-carbone/)
 
 
 
