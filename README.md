@@ -359,11 +359,22 @@ On remarque qu’en effet au d´ebut le carbone dans l’air augmente et celui d
 Il y a autre une autre remarque, c'est le fait que modélisation pour $h = 10$ et Euler Implicite ne marche pas. On peut imaginer que si $C_{T0} > K$ alors $C_{T}$ évolue rapidement pour passer sous $K$, tandis que $C_{S}$ et $C_{A}$ sont plus lent. Il faut donc un pas faible pour pouvoir capter correctement ces variations.
 
 
-Dans le cas ou $\gamma = \beta = \delta = 0$ et $\aplha = 0.3$, les arbres absorbent du carbone sans jamais le relâcher, ni dans l’atmosphère, ni dans le sol. Dans ce scénario, le carbone absorbé par les arbres augmente jusqu'à atteindre la capacité maximale $K$, tandis que le carbone dans l'atmosphère diminue proportionnellement, jusqu'à ce que le niveau de $C_A$ atteigne $C_{A0} - (K - C_{T0})$.
+Dans le cas ou $\gamma = \beta = \delta = 0$ et $\alpha = 0.3$, les arbres absorbent du carbone sans jamais le relâcher, ni dans l’atmosphère, ni dans le sol. Dans ce scénario, le carbone absorbé par les arbres augmente jusqu'à atteindre la capacité maximale $K$, tandis que le carbone dans l'atmosphère diminue proportionnellement, jusqu'à ce que le niveau de $C_A$ atteigne $C_{A0} - (K - C_{T0})$.
 
 ![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/tout%20%3D%200%2C%20alpha%20!%3D.png)
 
 $K = 200, C_{A0} = 80, C_{T0} = 1, C_{S0} = 10$
+
+Si on permet le transfère de carbone vers le sol grâce à la litière (feuilles mortes) en posant $\gamma = 0.2$
+Le carbone absorbé par les arbres est transféré dans le sol, ce qui permet une séquestration plus efficace.
+![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/uniquement%20gamma%20alpha.png)
+Cette représentation nous montre qu’ici le transfert de carbone entre les arbres et le sol est assez important pour avoir une séquestration très forte et très rapide.
+
+Si on pose $gamma = 0.001$,
+![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/uniquement%20gamma%20alpha%20%2B%20faible.png)
+On remarque que la séquestration est plus faible. Mais quelque soit la valeur des paramètres $\alpha$ et $\gamma$ si $\beta = \delta = 0$ on n'atteindra pas d'équilibre puisque aucun carbone n'est rejeté dans l'atmosphère.
+
+
 
 ***
 ### **Amélioration du Modèle**
