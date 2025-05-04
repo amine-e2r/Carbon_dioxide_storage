@@ -199,7 +199,7 @@ Fonction eulerExplicite(C0)
     Retourner C et T
 Fin Fonction
 ```
-
+<br><br/>
 #### _Méthode de Trapèze_
 
 $$
