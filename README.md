@@ -349,56 +349,59 @@ Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arb
 ***
 ### **Analyse de l'impact des paramètres sur la modélisation**
 ***
-La capacité de stockage maximale des arbres est représentée par le paramètre $K$. Si la quantité de carbone initiale dans les arbres $C_{T0}$ est supérieur à $K$, alors la fonction de séquestration du carbone, $S(C_T)$ est négative. Donc du carbone présent dans les arbres est rejeté dans le sol est dans l'atmosphère pour que $C_T$ passe sous $K$.
+La capacité de stockage maximale des arbres est représentée par le paramètre \(K\). Si la quantité de carbone initiale dans les arbres \(C_{T0}\) est supérieure à \(K\), alors la fonction de séquestration du carbone, \(S(C_T)\), devient négative. Ainsi, du carbone présent dans les arbres est rejeté dans le sol et dans l'atmosphère pour que \(C_T\) passe sous \(K\).
 
 ![Courbe avec \(C_T0 > K\) et \(h = 10\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/CT0%20sup%20K%20h%20%3D%2010.png)
 
 ![Courbe avec \(C_T0 > K\) et \(h = 0.1\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/CT0%20sup%20K%20h%20%3D%200.1.png)
 
-On remarque qu’en effet au début le carbone dans l’air augmente et celui dans le sol a aussi une augmentation plus forte.
-Il y a autre une autre remarque, c'est le fait que modélisation pour $h = 10$ et Euler Implicite ne marche pas. On peut imaginer que si $C_{T0} > K$ alors $C_{T}$ évolue rapidement pour passer sous $K$, tandis que $C_{S}$ et $C_{A}$ sont plus lent. Il faut donc un pas faible pour pouvoir capter correctement ces variations.
----
-###Absorbtion de carbone par les arbres uniquement
-
-Dans ce cas, \(\gamma = \beta = \delta = 0\) et \(\alpha = 0.3\), les arbres absorbent du carbone sans jamais le relâcher, ni dans l’atmosphère, ni dans le sol. Dans ce scénario, le carbone absorbé par les arbres augmente jusqu'à atteindre la capacité maximale $K$, tandis que le carbone dans l'atmosphère diminue proportionnellement, jusqu'à ce que le niveau de $C_A$ atteigne $C_{A0} - (K - C_{T0})$.
-
-![Courbe pour \(\alpha = 0.3\), \(\gamma = \beta = \delta = 0\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/tout%20%3D%200%2C%20alpha%20!%3D.png)
-*Paramètre : $K = 200, C_{A0} = 80, C_{T0} = 1, C_{S0} = 10$*
+On remarque qu’en effet, au début, le carbone dans l’air augmente et celui dans le sol connaît également une augmentation plus forte.  
+Il y a aussi une autre remarque importante : la modélisation pour \(h = 10\) et la méthode d'Euler Implicite ne fonctionne pas correctement.  
+Nous pouvons imaginer que si \(C_{T0} > K\), alors \(C_T\) évolue rapidement pour passer sous \(K\), tandis que \(C_S\) et \(C_A\) sont plus lents. Il faut donc un pas faible pour capter correctement ces variations.
 
 ---
+
+### Absorption de carbone par les arbres uniquement
+Dans ce cas, \(\gamma = \beta = \delta = 0\) et \(\alpha = 0.3\), les arbres absorbent du carbone sans jamais le relâcher, ni dans l’atmosphère, ni dans le sol. Dans ce scénario, le carbone absorbé par les arbres augmente jusqu'à atteindre la capacité maximale \(K\), tandis que le carbone dans l'atmosphère diminue proportionnellement, jusqu'à ce que le niveau de \(C_A\) atteigne \(C_{A0} - (K - C_{T0})\).
+
+![Courbe pour \(\alpha = 0.3\), \(\gamma = \beta = \delta = 0\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/tout%20%3D%200%2C%20alpha%20!%3D.png)  
+*Paramètres : \(K = 200\), \(C_{A0} = 80\), \(C_{T0} = 1\), \(C_{S0} = 10\)*
+
+---
+
 ### Transfert de carbone vers le sol
+Si on permet le transfert de carbone vers le sol grâce à la litière (feuilles mortes) en posant \(\gamma = 0.2\), le carbone absorbé par les arbres est transféré dans le sol, ce qui permet une séquestration plus efficace.
 
-Si on permet le transfère de carbone vers le sol grâce à la litière (feuilles mortes) en posant $\gamma = 0.2$
-Le carbone absorbé par les arbres est transféré dans le sol, ce qui permet une séquestration plus efficace.
-![Courbe avec \(\gamma = 0.2\](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/uniquement%20gamma%20alpha.png)
-Cette représentation nous montre qu’ici le transfert de carbone entre les arbres et le sol est assez important pour avoir une séquestration très forte et très rapide.
+![Courbe avec \(\gamma = 0.2\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/uniquement%20gamma%20alpha.png)
 
-Si on pose $\gamma = 0.001$,
+Cette représentation montre qu’ici le transfert de carbone entre les arbres et le sol est assez important pour avoir une séquestration très forte et très rapide.
+
+Si on pose \(\gamma = 0.001\),
+
 ![Courbe avec \(\gamma = 0.001\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/uniquement%20gamma%20alpha%20%2B%20faible.png)
 
-On remarque que la séquestration est plus faible. **Mais quelque soit la valeur des paramètres $\alpha$ et $\gamma$ si $\beta = \delta = 0$ on n'atteindra pas d'équilibre** puisque aucun carbone n'est rejeté dans l'atmosphère.
+On remarque que la séquestration est plus faible. **Mais, quelle que soit la valeur des paramètres \(\alpha\) et \(\gamma\), si \(\beta = \delta = 0\), on n'atteindra pas d'équilibre**, car aucun carbone n'est rejeté dans l'atmosphère.
 
 ---
 
 ### Transfert arbres, sol et atmosphère
-Lorsque le carbone est autorisé à être rejeté dans le sol par les arbres et dans l'atmosphère par le sol grâce à la respiration, avec des valeurs spécifiques pour $\delta = 0.01$, $\alpha = 0.1$, et $\gamma = 0.02$ et toujours $\beta = 0$ un équilibre est atteint. Dans cet équilibre, la quantité de carbone absorbée par les arbres est égale à celle rejetée dans l'atmosphère et le sol.
+Lorsque le carbone est autorisé à être rejeté dans le sol par les arbres et dans l'atmosphère par le sol grâce à la respiration, avec des valeurs spécifiques pour \(\delta = 0.01\), \(\alpha = 0.1\), et \(\gamma = 0.02\) et toujours \(\beta = 0\), un équilibre est atteint. Dans cet équilibre, la quantité de carbone absorbée par les arbres est égale à celle rejetée dans l'atmosphère et le sol.
 
-![Courbe avec \(\delta = 0.01\), \(\alpha = 0.1\), \(\gamma = 0.02\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/equilibre.png)
+![Courbe avec \(\delta = 0.01\), \(\alpha = 0.1\), \(\gamma = 0.02\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/equilibre.png)  
 *Paramètres : \(C_{A0} = 80\), \(C_{T0} = 30\), \(C_{S0} = 10\)*
+
 ---
 
-### Trasfert entre arbres et atmosphère
-On pose $\beta = 0.01$, on autorise la respiration directe entre les arbres et l'atmosphère.
+### Transfert entre arbres et atmosphère
+On pose \(\beta = 0.01\), ce qui autorise la respiration directe entre les arbres et l'atmosphère.
 
 ![Courbe avec \(\beta = 0.01\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/equilibre%202.png)
 
-On atteint l'équilibre à une quantité de séquestration plus faible car le système perd plus de carbone dans l'atmosphère en raison de l'augmentation de $\beta$, et la capacité d'absorption des arbres est limitée. On pourrait compenser cette perte en augmentant $alpha$ et on pourra retrouver le même graphique que précédemment.
+On atteint l'équilibre à une quantité de séquestration plus faible, car le système perd plus de carbone dans l'atmosphère en raison de l'augmentation de \(\beta\), et la capacité d'absorption des arbres est limitée. On pourrait compenser cette perte en augmentant \(\alpha\) et ainsi retrouver le même graphique que précédemment.
 
-Si on augment encore $\beta$ avec $\beta = 0.08$ on observe un augmentation du carbone dans l'atmosphère. La quantité de carbone rejetée est plus élevée que celle absorbé.
+Si on augmente encore \(\beta\) avec \(\beta = 0.08\), on observe une augmentation du carbone dans l'atmosphère. La quantité de carbone rejetée est plus élevée que celle absorbée.
 
 ![Courbe avec \(\beta = 0.08\)](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/augmentation%20ca.png)
-
-***
 ### **Amélioration du Modèle**
 ***
 Dans notre modèle, on autorise $C_A$ à devenir négatif, ce qui n'est pas réaliste d'un point de vue physique. Pour améliorer le modèle, on pourrait imposer une borne inférieure à $C_A$.
