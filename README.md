@@ -345,9 +345,19 @@ Le paramètre $\gamma$ contrôle le flux de matière organique morte (litière) 
 Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arbres vers les sols ($\delta C_T$), et dans la respiration des sols vers l’atmosphère ($\delta C_S$). Il régule donc les pertes de carbone par respiration. Une valeur élevée de $\delta$ accélère le cycle du carbone, augmentant la quantité de CO₂ retournant à l’atmosphère. À l’inverse, un $\delta$ faible réduit ces pertes, ce qui favorise le stockage du carbone, notamment dans les sols. Cependant, une respiration trop faible peut ralentir le recyclage des nutriments essentiels à la croissance des plantes.
 <br><br/>
 <br><br/>
+
+***
+### **Analyse de l'impact des paramètres sur la modélisation**
+***
+La capacité de stockage maximale des arbres est représentée par le paramètre \( K \). Si la quantité de carbone initiale dans les arbres $C_{T0}$ est supérieur à $K$, alors la fonction de séquestration du carbone, $S(C_T)$ est négative. Donc du carbone présent dans les arbres est rejeté dans le sol est dans l'atmosphère pour que $C_T$ passe sous $K$.
+
+![alt text](https://github.com/amine-e2r/Carbon_dioxide_storage/blob/main/courbe/CT0%20sup%20K%20h%20%3D%200.1.png)
+
+
 ***
 ### **Amélioration du Modèle**
 ***
+
 <br><br/>
 <br><br/>
 ***
