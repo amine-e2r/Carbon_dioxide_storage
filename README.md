@@ -226,12 +226,37 @@ Cela revient à résoudre $f_{newton}(C_{n+1}) = 0$
 
 $$
 \begin{align}
-    df_{newton}(C_{n+1}) &= \frac{d}{dC_{n+1}}f_{newton}(C_{n+1}) \\ 
+    \frac{df_{newton}(C_{n+1})}{d(C_{n+1})}
      &= \frac{d}{dC_{n+1}}F(C_{n+1}) - \frac{d}{dC_{n+1}}C_{n+1} \\
      &= \frac{d}{dC_{n+1}}(C_n +\frac{h}{2}(f(t_{n+1},C_{n+1})+f(t_n, C_n)) - I_3 \\
      &=\frac{h}{2}\frac{d}{dC_{n+1}}f(t_{n+1},C_{n+1}) - I_3 \\
 \end{align}
 $$
+
+ainsi:
+
+$$
+\begin{equation*}
+    \frac{df_{newton}(C_{n+1})}{d(C_{n+1})} = \frac{h}{2} 
+    \begin{pmatrix}
+        0 & -\alpha + \frac{2C_{T,n+1}}{K}+\beta & \delta \\
+        0 & \alpha - \frac{2C_{T,n+1}}{K} - \beta - \delta - \gamma  & 0 \\ 
+        0 & \gamma + \delta & - \delta \\
+    \end{pmatrix} - I_3
+\end{equation*}
+$$
+
+On à alors que chaque $C_{n}$ est solution du problème $f_{newton}(X) = 0$ telle que:
+
+$$
+\begin{equation}
+\begin{cases}
+    X_{n,0} &= C_{n-1} \\
+    X_{n,k+1} &= X_{n,k} - (\frac{df_{newton}(X_{n,k-1})}{X_{n,k-1}})^{-1} \cdot f_{newton(X_{n,k-1})}
+\end{cases}
+\end{equation}
+$$
+
 
 Algorithme:
 
