@@ -144,15 +144,16 @@ def trapeze_newton(_C0):
 
 C1, T1 = eulerImplicite(C0, F1)
 C2, T2 = eulerExplicite(C0)
+C3,T3 = trapeze_newton(C0)
 
-plt.subplot(2,1,1)
+plt.subplot(3,1,1)
 plt.plot(T1, C1[0], label='CA(t)')
 plt.plot(T1, C1[1], label='CT(t)')
 plt.plot(T1, C1[2], label='Cs(t)')
 plt.legend()
-plt.title("Point fixe à partir d'Euler Implicite")
+plt.title("Euler Implicite avec point fixe")
 
-plt.subplot(2,1,2)
+plt.subplot(3,1,2)
 plt.plot(T2, C2[0], label='CA(t)')
 plt.plot(T2, C2[1], label='CT(t)')
 plt.plot(T2, C2[2], label='CS(t)')
@@ -160,4 +161,13 @@ plt.legend()
 plt.xlabel("t")
 plt.title("Euler explicite")
 
+plt.subplot(3,1,3)
+plt.plot(T3, C3[0], label='CA(t)')
+plt.plot(T3, C3[1], label='CT(t)')
+plt.plot(T3, C3[2], label='CS(t)')
+plt.legend()
+plt.xlabel("t")
+plt.title("Trapèze avec nexton")
+
+plt.suptitle("Différentes quantités en fonction du temps")
 plt.show()
