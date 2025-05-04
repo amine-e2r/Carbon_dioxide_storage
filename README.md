@@ -406,8 +406,13 @@ Si on augmente encore $\beta$ avec $\beta = 0.08$ on observe une augmentation du
 ### **Amélioration du Modèle**
 ***
 Dans notre modèle, on autorise $C_A$ à devenir négatif, ce qui n'est pas réaliste d'un point de vue physique. Pour améliorer le modèle, on pourrait imposer une borne inférieure à $C_A$.
-<br><br/>
-<br><br/>
+On peut faire cela en remplaçant une partie du code dans la boucle par:
+```
+Cn = #calcul du nouveau vecteur
+Cn[0] = max(0, Cn[0]) #Cn[0] correspond au terme CA
+C = np.append(C, np.transpose([Cn]))
+```
+
 ***
 ### **Conclusion**
 ***
