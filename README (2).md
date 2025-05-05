@@ -115,8 +115,7 @@ On considère alors $\forall n \ge 1$ la suite $(C_{n,k})_{k \in \mathbb{N}}$ te
 Algorithme:
 
 ```
-Fonction point_fixe(X0, F, eps, max_iter)
-    Convertir X0 en vecteur (si nécessaire)
+Fonction point_fixe(X0, F)
     Initialiser Xk ← X0
     Initialiser Xk_1 ← X0
 
@@ -173,7 +172,7 @@ Algorithme:
 ```
 Fonction eulerExplicite(C0)
     Initialiser t ← t0
-    Créer un tableau C de taille 3×1 rempli de zéros
+    Créer un tableau C #tableau contenant les grandeurs
     Créer une liste T contenant t0
     Mettre la première colonne de C égale à C0
     Initialiser k ← 1
@@ -252,9 +251,25 @@ On à alors que chaque $C_{n}$ est solution du problème $f_{newton}(X) = 0$ tel
 Algorithme:
 
 ```
+Fonction newton(X0, f, df)
+    Initialiser Xk ← X0
+
+    Pour i allant de 0 à max_iter - 1 faire
+        Si la norme de f(Xk, X0) est inférieure à eps alors
+            Sortir de la boucle
+        Fin Si
+
+        Xk ← Xk - inverse(df(Xk)) × f(Xk, X0)
+    Fin Pour
+
+    Retourner Xk
+Fin Fonction
+```
+
+```
 Fonction trapeze_newton(C0)
     Initialiser t ← t0
-    Créer un tableau C de taille 3×1 rempli de zéros
+    Créer un tableau C #tableau contenant les grandeurs
     Créer une liste T contenant t0
     Mettre la première colonne de C égale à C0
     Initialiser k ← 1
@@ -268,23 +283,6 @@ Fonction trapeze_newton(C0)
     Fin Tant que
 
     Retourner C et T
-Fin Fonction
-```
-
-```
-Fonction newton(X0, f, df, eps, max_iter)
-    Convertir X0 en vecteur (si nécessaire)
-    Initialiser Xk ← X0
-
-    Pour i allant de 0 à max_iter - 1 faire
-        Si la norme de f(Xk, X0) est inférieure à eps alors
-            Sortir de la boucle
-        Fin Si
-
-        Xk ← Xk - inverse(df(Xk)) × f(Xk, X0)
-    Fin Pour
-
-    Retourner Xk
 Fin Fonction
 ```
 
@@ -352,7 +350,6 @@ Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arb
 <br><br/>
 <br><br/>
 
-***
 ### **Analyse de l'impact des paramètres sur la modélisation**
 ***
 
@@ -451,6 +448,10 @@ avec $\epsilon C_A(t)$ qui représente le taux de séquestration du carbone dans
 
 ### **Annexe**
 ***
+
+[L’océan, puits de carbone](https://ocean-climate.org/sensibilisation/locean-puits-de-carbone/)</br>
+[Source pour le C02 emis dans l'atmosphère](https://gml.noaa.gov/ccgg/trends/)
+
 ### ***Répartition***
 ***
 Lucah, Amine, Gagik : prise de connaissance du sujet, lecture des sources (rapidement) : 3h  
@@ -466,6 +467,3 @@ Amine/Lucah : revue du code, correction des problèmes : 30 min
 Lucah/Amine : discussions sur limpact des différents paramètres, créations de graphes à l'aide du code : 4h  
 Amine/Gagik : Finalisation du rapport et (tentative de le transformer en format pdf) 2h30  
 
-
-[L’océan, puits de carbone](https://ocean-climate.org/sensibilisation/locean-puits-de-carbone/)</br>
-[Source pour le C02 emis dans l'atmosphère](https://gml.noaa.gov/ccgg/trends/)
