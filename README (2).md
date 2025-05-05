@@ -1,6 +1,5 @@
 # Modélisation du Stockage du Dioxyde de Carbone
 
-***
 ### **Introduction**
 ***
 Ce projet a pour objectif de modéliser les échanges de carbone entre les différents compartiments de l’écosystème à l’aide d’un système d’équations différentielles ordinaires (EDO). Le modèle étudié ne prend pas en compte l’ensemble des paramètres physiques, cela mènerait à un système plus complexe.
@@ -11,7 +10,6 @@ Ces équations sont essentielles pour représenter la variabilité des sols, du 
 <br><br/>
 <br><br/>
 
-***
 ### **Formulation Mathématique**
 ***
 Dans ce projet, nous étudions l'évolution de trois variables en fonction du temps :
@@ -29,15 +27,15 @@ Le système d’équations gouvernant les échanges de carbone dans ce projet pe
 \end{align}
 
 avec:
+
   - $S(C_T) = \alpha C_T \left(1 - \dfrac{C_T}{K} \right)$: taux de séquestration du carbone dans les arbres,
   - $\beta C_T$: respiration des arbres vers l'atmosphère,
   - $\delta C_T$: transfert de carbone des arbres vers les sols,
   - $\delta C_S$: respiration des sols vers l'atmosphère,
-  - $\gamma C_T$: litière végétale (feuilles mortes, débris organiques) transférée des arbres vers les sols.
+  - $\gamma C_T$: litière végétale (feuilles mortes, débris organiques transférée des arbres vers les sols).
 <br><br/>
 <br><br/>
 
-***
 ### **Méthodes et Implémentation**
 ***
 On pose:
@@ -293,7 +291,7 @@ Fin Fonction
 <br><br/>
 <br><br/>
 
-***
+
 ### **Resultas**
 ***
 On teste nos méthode avec comme paramètre: $\alpha = 0.1, \beta = 0.02, \gamma = 0.03, \delta = 0.01, K = 100$ et comme pas $h = 65$.
@@ -301,7 +299,7 @@ On teste nos méthode avec comme paramètre: $\alpha = 0.1, \beta = 0.02, \gamma
 On voit la stabilité par rapport au pas de la méthode Trapèze avec Newton, comparée aux deux autres.
 
 
-***
+
 ### **Impact des Paramètres sur la Séquestration du Carbone**
 ***
 
@@ -400,7 +398,7 @@ Si on augmente encore $\beta$ avec $\beta = 0.08$ on observe une augmentation du
 
 ![Courbe avec $\beta = 0.08$](C:\Users\amerr\OneDrive\Documents\MAM3\S6\an\carbon\augmentationca.png)
 
-***
+
 ### **Amélioration du Modèle**
 ***
 Dans notre modèle, on autorise $C_A$ à devenir négatif, ce qui n'est pas réaliste d'un point de vue physique. Pour améliorer le modèle, on pourrait imposer une borne inférieure à $C_A$.
@@ -422,13 +420,13 @@ $\frac{dC_O(t)}{dt} = \epsilon C_A(t) - \omega C_O(t)$</br>
 
 avec $\epsilon C_A(t)$ qui représente le taux de séquestration du carbone dans l'océean et $\omega C_O(t)$ décrit l’effet de respiration de l'océan vers l'atmosphère.
 
-***
+
 ### **Conclusion**
 ***
 <br><br/>
 <br><br/>
 
-***
+
 ### **Annexe**
 ***
 # Répartition
