@@ -1,7 +1,4 @@
 # Modélisation du Stockage du Dioxyde de Carbone
-
-<br><br/>
-<br><br/>
 ***
 ### **Introduction**
 ***
