@@ -1,5 +1,5 @@
 # Répartition
-Lucah, Amine, Gagik : prise de connaissance du sujet, lecture des sources (rapidement) : 3h
+Lucah, Amine, Gagik : prise de connaissance du sujet, lecture des sources (rapidement) : 3h [\br]
 Lucah, Amine, Gagik : prise en main de github (création du projet, des branches etc) : 1h30
 Gagik : Première approche théorique du problème avec la méthode implicite d'Euler + Point fixe (et code latex): 4h
 Amine : implémentation des méthodes en python 2h
