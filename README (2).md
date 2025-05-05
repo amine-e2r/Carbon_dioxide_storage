@@ -304,7 +304,7 @@ On voit la stabilité par rapport au pas de la méthode Trapèze avec Newton, co
 ### **Impact des Paramètres sur la Séquestration du Carbone**
 ***
 
-#### _Le paramètre $\alpha$_
+#### _Le paramètre $\alpha$_</br>
 Le paramètre $\alpha$ influence le taux de séquestration du carbone par les arbres. Il apparaît dans la fonction non linéaire :
 
 $$
@@ -315,7 +315,7 @@ Cette fonction décrit la capture du $CO_2$ par les arbres. Lorsque $\alpha$ aug
 
 <br><br/>
 
-#### _Le paramètre $K$_
+#### _Le paramètre $K$_</br>
 Le paramètre $K$ représente la quantité maximale de carbone que les arbres peuvent stocker. En reprenant l'équation :
 
 $$
@@ -326,17 +326,17 @@ on observe que faire varier $K$ modifie le taux de séquestration. Une valeur é
 
 <br><br/>
 
-#### _Le paramètre $\beta$_
+#### _Le paramètre $\beta$_</br>
 Le paramètre $\beta$, qui intervient dans le terme $\beta C_T$, représente la fraction de carbone que les arbres restituent à l’atmosphère par respiration. Plus $\beta$ est élevé, plus le retour de $CO_2$ dans l’air est important, ce qui réduit l’efficacité globale de la séquestration du carbone.
 
 <br><br/>
 
-#### _Le paramètre $\gamma$_
+#### _Le paramètre $\gamma$_</br>
 Le paramètre $\gamma$ contrôle le flux de matière organique morte (litière) des arbres vers les sols, modélisé par le terme $\gamma C_T$. Il ne prend pas en compte la respiration des arbres vers le sol, qui est décrite par le terme $\delta C_T$. Une valeur élevée de $\gamma$ favorise l’enrichissement des sols en matière organique, ce qui améliore leur fertilité et leur capacité à stocker du carbone sur le long terme.
 
 <br><br/>
 
-#### _Le paramètre $\delta$_
+#### _Le paramètre $\delta$_</br>
 Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arbres vers les sols ($\delta C_T$), et dans la respiration des sols vers l’atmosphère ($\delta C_S$). Il régule donc les pertes de carbone par respiration. Une valeur élevée de $\delta$ accélère le cycle du carbone, augmentant la quantité de $CO_2$ retournant à l’atmosphère. À l’inverse, un $\delta$ faible réduit ces pertes, ce qui favorise le stockage du carbone, notamment dans les sols. Cependant, une respiration trop faible peut ralentir le recyclage des nutriments essentiels à la croissance des plantes.
 <br><br/>
 <br><br/>
@@ -345,7 +345,7 @@ Le paramètre $\delta$ intervient à deux niveaux : dans la respiration des arb
 ### **Analyse de l'impact des paramètres sur la modélisation**
 ***
 
-#### Impact de $K$
+#### Impact de $K$</br>
 
 La capacité de stockage maximale des arbres est représentée par le paramètfre $K$. Si la quantité de carbone initiale dans les arbres $C_{T0}$ est supérieure à $K$, alors la fonction de séquestration du carbone, $S(C_T)$ est négative. Donc du carbone présent dans les arbres est rejeté dans le sol et dans l'atmosphère pour que $C_T$ passe sous $K$.
 
@@ -357,7 +357,7 @@ On remarque qu’en effet au début le carbone dans l’air augmente et celui da
 Il y a une autre remarque : c'est le fait que la modélisation pour $h = 10$ et Euler Implicite ne marche pas. On peut imaginer que si $C_{T0} > K$ alors $C_T$ évolue rapidement pour passer sous $K$, tandis que $C_S$ et $C_A$ sont plus lents. Il faut donc un pas faible pour pouvoir capter correctement ces variations.
 
 
-#### Absorption de carbone par les arbres uniquement
+#### Absorption de carbone par les arbres uniquement</br>
 
 Dans ce cas, $\gamma = \beta = \delta = 0$ et $\alpha = 0.3$, les arbres absorbent du carbone sans jamais le relâcher, ni dans l’atmosphère, ni dans le sol. Dans ce scénario, le carbone absorbé par les arbres augmente jusqu'à atteindre la capacité maximale $K$, tandis que le carbone dans l'atmosphère diminue proportionnellement, jusqu'à ce que le niveau de $C_A$ atteigne $C_{A0} - (K - C_{T0})$.
 
@@ -365,7 +365,7 @@ Dans ce cas, $\gamma = \beta = \delta = 0$ et $\alpha = 0.3$, les arbres absorbe
 *Paramètre :* $K = 200$, $C_{A0} = 80$, $C_{T0} = 1$, $C_{S0} = 10$
 
 
-#### Transfert de carbone vers le sol
+#### Transfert de carbone vers le sol</br>
 
 Si on permet le transfert de carbone vers le sol grâce à la litière (feuilles mortes) en posant $\gamma = 0.2$  
 Le carbone absorbé par les arbres est transféré dans le sol, ce qui permet une séquestration plus efficace.
@@ -379,7 +379,7 @@ Si on pose $\gamma = 0.001$,
 On remarque que la séquestration est plus faible. **Mais quelque soit la valeur des paramètres $\alpha$ et $\gamma$ si $\beta = \delta = 0$ on n'atteindra pas d'équilibre** puisque aucun carbone n'est rejeté dans l'atmosphère.
 
 
-#### Transfert arbres, sol et atmosphère
+#### Transfert arbres, sol et atmosphère</br>
 
 Lorsque le carbone est autorisé à être rejeté dans le sol par les arbres et dans l'atmosphère par le sol grâce à la respiration, avec des valeurs spécifiques pour $\delta = 0.01$, $\alpha = 0.1$, et $\gamma = 0.02$ et toujours $\beta = 0$, un équilibre est atteint. Dans cet équilibre, la quantité de carbone absorbée par les arbres est égale à celle rejetée dans l'atmosphère et le sol.
 
@@ -387,7 +387,7 @@ Lorsque le carbone est autorisé à être rejeté dans le sol par les arbres et 
 *Paramètres :* $C_{A0} = 80$, $C_{T0} = 30$, $C_{S0} = 10$
 
 
-#### Transfert entre arbres et atmosphère
+#### Transfert entre arbres et atmosphère</br>
 
 On pose $\beta = 0.01$, on autorise la respiration directe entre les arbres et l'atmosphère.
 
@@ -399,6 +399,7 @@ Si on augmente encore $\beta$ avec $\beta = 0.08$ on observe une augmentation du
 
 ![Courbe avec $\beta = 0.08$](C:\Users\amerr\OneDrive\Documents\MAM3\S6\an\carbon\augmentationca.png)
 
+***
 ### **Amélioration du Modèle**
 ***
 Dans notre modèle, on autorise $C_A$ à devenir négatif, ce qui n'est pas réaliste d'un point de vue physique. Pour améliorer le modèle, on pourrait imposer une borne inférieure à $C_A$.
