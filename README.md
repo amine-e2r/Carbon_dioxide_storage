@@ -417,7 +417,9 @@ C = np.append(C, np.transpose([Cn]))
 Les océans sont les plus grand puit de carbone de la planète, il est donc légitime de les prendre en compge dans notre modélisation. 
 En présence d'un océean, on peut rajouter une autre variable $C_O(t)$ la quantité de carbone dans l'eau. On a une interaction entre l'eau et l'atmosphère.
 
-$\frac{dC_A(t)}{dt} = -S(C_T(t)) + \beta C_T(t) + \delta C_S(t) - \epsilon C_A(t) + \omega C_O(t)$</br>
+Pour rendre le modèle plus réaliste, on peut rajouter un terme source dans le terme $\frac{dC_A(t)}{dt}$ pour représenter l'émission de $CO_2$ par l'activité humaine. On choisie $\exp(t/1000)$ pour modéliser cela.
+
+$\frac{dC_A(t)}{dt} = -S(C_T(t)) + \beta C_T(t) + \delta C_S(t) - \epsilon C_A(t) + \omega C_O(t)$ + \exp(t/1000)</br>
 $\frac{dC_T(t)}{dt} = S(C_T(t)) - \beta C_T(t) - \delta C_T(t) - \gamma C_T(t)$</br>
 $\frac{dC_S(t)}{dt} = \gamma C_T(t) - \delta C_S(t) + \delta C_T(t)$</br>
 $\frac{dC_O(t)}{dt} = \epsilon C_A(t) - \omega C_O(t)$</br>
