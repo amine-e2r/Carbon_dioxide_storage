@@ -64,7 +64,7 @@ $$
 \frac{dC(t)}{dt} = f(t,C(t))
 $$
 
-Si on discrétise uniformément l'intervalle de temps en N intervalles $[t_n, t_{n+1}]$, avec $n = \{1, 2, ..., N-1\}$, tel que $t_{n+1} = t_n + h$ et $h = \frac{1}{N}$.<br><br/>
+Si on discrétise uniformément l'intervalle de temps en intervalles $[t_n, t_{n+1}]$, avec $n = \{0, 1, ..., N-1\}$, tel que $t_{n+1} = t_n + h$ et $h = \frac{1}{N}$.<br><br/>
 On peut appliquer une methode d'Euler:
 
 \begin{align}
@@ -111,6 +111,7 @@ On considère alors $\forall n \ge 1$ la suite $(C_{n,k})_{k \in \mathbb{N}}$ te
 \end{cases}
 \end{equation}
 
+Pour h assez petit, on peut montrer que F est contractante, de plus le premier terme de la suite étant assez proche de la limite, la méthode converge assez bien pour des valeurs de h raisonnables.
 
 Algorithme:
 
@@ -192,6 +193,7 @@ Fin Fonction
 
 #### _Méthode de Trapèze_
 
+La méthode des trapèzes permet de mieux approximer l'intégrale, et donc donner un modèle plus précis en plus de permettre des valeurs de h plus grandes, donc moins de calculs.
 
 \begin{equation*}
         C_{n+1} = C_n + \frac{h}{2}[f(t_{n+1},C_{n+1})+f(t_n, C_n)]
@@ -424,7 +426,7 @@ C = np.append(C, np.transpose([Cn]))
 Les océans sont les plus grand puit de carbone de la planète, il est donc légitime de les prendre en compge dans notre modélisation. 
 En présence d'un océean, on peut rajouter une autre variable $C_O(t)$ la quantité de carbone dans l'eau. On a une interaction entre l'eau et l'atmosphère.
 
-Pour rendre le modèle plus réaliste, on peut rajouter un terme source dans le terme $\frac{dC_A(t)}{dt}$ pour représenter l'émission de $CO_2$ par l'activité humaine. On choisie $\exp(t/1000)$ pour modéliser cela.
+Pour rendre le modèle plus réaliste, on peut rajouter un terme source dans le terme $\frac{dC_A(t)}{dt}$ pour représenter l'émission de $CO_2$ par l'activité humaine. On choisie $\exp(t/1000)$ pour modéliser cela, ce choix est justifié en observant l'évolution du taux de C02 dans l'atmosphère causée par l'homme d'après l'étude de Global Monitoring Laboratory.
 
 \begin{equation*}
 \left\{
@@ -442,6 +444,7 @@ avec $\epsilon C_A(t)$ qui représente le taux de séquestration du carbone dans
 
 ### **Conclusion**
 ***
+Ce projet a permis de mieux intégrer les méthodes numériques vues en cours, et de les mettre en application sur un système d'équations différentielles, en plus de comprendre leur utilité dans l'application à des domaines concrets. Les résultats semblent cohérents avec nos prédictions, et la réalité (dans les limites du modèle), l'impact des différentes constantes est visible.
 <br><br/>
 <br><br/>
 
