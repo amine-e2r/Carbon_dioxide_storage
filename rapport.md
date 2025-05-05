@@ -425,7 +425,7 @@ avec $\epsilon C_A(t)$ qui représente le taux de séquestration du carbone dans
 ***
 ### **Annexe**
 ***
-[L’océan, puits de carbone](https://ocean-climate.org/sensibilisation/locean-puits-de-carbone/)
+[L’océan, puits de carbone](https://ocean-climate.org/sensibilisation/locean-puits-de-carbone/)</br>
 [Source pour le C02 emis dans l'atmosphère](https://gml.noaa.gov/ccgg/trends/)
 
 
